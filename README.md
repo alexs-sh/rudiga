@@ -2,6 +2,12 @@
 
 Simple game for vocabulary training.
 
+# Quick start
+
+```
+nc ovz1.shirokovalexs.pl50n.vps.myjino.ru 49205
+```
+![](./pics/example.gif)
 
 # Run
 
