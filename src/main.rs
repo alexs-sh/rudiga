@@ -28,14 +28,13 @@ fn play(io: Box<dyn IO>, translations: Arc<Translations>) {
 fn main() {
     let path = env::args()
         .nth(1)
-        .unwrap_or("./dictionary/ru-pl.txt".to_owned());
+        .unwrap_or_else(|| "./dictionary/ru-pl.txt".to_owned());
 
     let address = env::args().nth(2);
 
     let dict = Arc::new(dictionary::read(&path).expect("can't read dictionary"));
 
-    if address.is_some() {
-        let address = address.unwrap();
+    if let Some(address) = address {
         println!("Network mode:{}", address);
         NetIO::run(dict, &address, play);
     } else {

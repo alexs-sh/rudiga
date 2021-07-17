@@ -13,7 +13,7 @@ pub trait IO {
     fn read(&mut self) -> Result<String>;
     fn write(&mut self, text: &str) -> Result<()>;
     fn writeln(&mut self, text: &str) -> Result<()> {
-        self.write(&format!("{}\n", text))
+        self.write(&format!("{}\r\n", text))
     }
 }
 
